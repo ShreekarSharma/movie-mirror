@@ -1,0 +1,51 @@
+.tmdb-logo,
+.imdb-logo,
+.metascore-logo{
+    width: 2.5rem;
+}
+
+.movie-poster{
+    max-width: 35%;
+}
+.movie-details{
+    max-width: 65%;
+}
+.cards::-webkit-scrollbar{
+    width: 0;
+}
+.card{
+    min-width: 6rem;
+    max-width: 6rem;
+}
+.poster-card,
+.recommendation-card{
+    min-width: 10rem;
+}
+.backdrop-card{
+    min-width: 20rem;
+}
+.video-card{
+    min-width: 20rem;
+}
+iframe{
+    width: 100%;
+    height: 300px;
+}
+/* ======== Media Queries ======== */
+@media screen and (max-width:991px){
+    .movie-details-div{
+        flex-direction: column;
+        align-items: center;
+    }
+    .movie-poster,
+    .movie-details{
+        max-width: 100%;
+    }
+    .movie-poster{
+        display: flex;
+        justify-content: center;
+    }
+    .movie-poster img{
+        width: 20rem;
+    }
+}

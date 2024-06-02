@@ -1,0 +1,6 @@
+.cards::-webkit-scrollbar{
+    width: 0;
+}
+.card{
+    min-width: 10rem;
+}

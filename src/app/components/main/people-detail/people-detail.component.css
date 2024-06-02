@@ -1,0 +1,37 @@
+.person-photo {
+  max-width: 35%;
+}
+
+.person-details {
+  max-width: 65%;
+}
+
+.cards::-webkit-scrollbar {
+  width: 0;
+}
+
+.card {
+  min-width: 10rem;
+  max-width: 10rem;
+}
+
+@media screen and (max-width:991px) {
+  .person-details-div {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .person-photo,
+  .person-details {
+    max-width: 100%;
+  }
+
+  .person-photo {
+    display: flex;
+    justify-content: center;
+  }
+
+  .person-photo img {
+    width: 20rem;
+  }
+}

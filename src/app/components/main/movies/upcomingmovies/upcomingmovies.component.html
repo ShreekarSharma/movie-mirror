@@ -1,0 +1,17 @@
+<div class="container text-white">
+    <h3 class="my-4">Upcoming Movies</h3>
+    <div class="cards d-flex flex-wrap gap-5 justify-content-evenly">
+        <div class="card bg-transparent text-white border-0" *ngFor="let movie of upcomingMovies" [routerLink]="['/movie/',movie?.id]">
+            <img src="{{movie?.poster_path ? 'https://media.themoviedb.org/t/p/original' + movie?.poster_path : 'https://eticketsolutions.com/demo/themes/e-ticket/img/movie.jpg'}}" class="card-img-top" alt="...">
+            <div class="card-body p-0 py-2">
+              <p class="card-title mb-0">{{movie?.title}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center my-5">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link bg-transparent text-white" [class.d-none]="+page===1" [routerLink]="['/movies/upcoming/', (+page-1)]">Previous Page</a></li>
+          <li class="page-item"><a class="page-link bg-transparent text-white"  [routerLink]="['/movies/upcoming/', (+page+1)]">Next Page</a></li>
+        </ul>
+    </div>
+</div>

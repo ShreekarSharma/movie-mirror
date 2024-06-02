@@ -1,0 +1,48 @@
+<div class="container text-white">
+    <div class="season-poster">
+  <img
+  src="{{seasonDetails?.poster_path ? 'https://image.tmdb.org/t/p/original' + seasonDetails?.poster_path : 'https://eticketsolutions.com/demo/themes/e-ticket/img/movie.jpg'}}" 
+   class="img-fluid w-100 my-5"
+    alt="">
+</div>
+  <h1>{{seasonDetails?.name}}</h1>
+  <span class="d-flex align-items-center gap-2 my-3"><img
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Tmdb.new.logo.svg/320px-Tmdb.new.logo.svg.png"
+      alt="" class="tmdb-logo" width="25" />
+    {{ seasonDetails?.vote_average * 10 | number : "1.0-0" }}%</span>
+  <h3 *ngIf="seasonDetails?.overview !== ''">Overview</h3>
+  <p class="lead">{{seasonDetails?.overview}}</p>
+  <div class="d-flex justify-content-center align-items-center my-5">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link bg-transparent text-white" [class.d-none]="+seasonNumber===1"
+          [routerLink]="['/tv/', tvShowId,'season',(+seasonNumber-1)]">Previous Season</a></li>
+      <li class="page-item"><a class="page-link bg-transparent text-white" [class.d-none]="+seasonNumber===totalSeasons"
+          [routerLink]="['/tv/', tvShowId,'season',(+seasonNumber+1)]">Next Season</a></li>
+    </ul>
+  </div>
+  <hr class="text-white">
+  <h3 class="mb-3">Episodes</h3>
+  <div class="episodes row justify-content-center">
+    <div class="card col-lg-4 col-md-6 col-sm-12 p-0 mb-3 bg-transparent text-white border-white" *ngFor="let episode of episodesDetails">
+        <img src="{{episode?.still_path ? 'https://image.tmdb.org/t/p/original' + episode?.still_path : 'https://static.vecteezy.com/system/resources/thumbnails/017/775/788/small/white-and-gray-chequered-pattern-for-transparent-background-vector.jpg'}}" class="card-img-top img-fluid" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Episode: {{episode?.episode_number}} <i class="bi bi-dash"></i> {{episode?.name}}</h5>
+          <p class="card-text">{{episode?.overview}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item bg-transparent text-white"><i class="bi bi-star-fill"></i>
+            {{ episode?.vote_average * 10 | number : "1.0-0" }}%</li>
+          <li class="list-group-item bg-transparent text-white">{{episode?.air_date}}</li>
+          <li class="list-group-item bg-transparent text-white">{{episode?.runtime}}min</li>
+        </ul>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center align-items-center my-5">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link bg-transparent text-white" [class.d-none]="+seasonNumber===1"
+          [routerLink]="['/tv/', tvShowId,'season',(+seasonNumber-1)]">Previous Season</a></li>
+      <li class="page-item"><a class="page-link bg-transparent text-white" [class.d-none]="+seasonNumber===totalSeasons"
+          [routerLink]="['/tv/', tvShowId,'season',(+seasonNumber+1)]">Next Season</a></li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="container text-white">
+    <div class="movie-genres mt-5">
+        <h3 class="mb-3">Movie Genres</h3>
+        <div class="d-flex flex-wrap gap-3">
+            <p class="fw-medium m-0 btn btn-success" *ngFor="let genre of movieGenres" [routerLink]="['/movies/genre/', genre.name, genre.id,1]">{{genre.name}}</p>
+        </div>
+    </div>
+    <div class="tv-genres mt-5">
+        <h3 class="mb-3">TV Show Genres</h3>
+        <div class="d-flex flex-wrap gap-3">
+            <p class="fw-medium m-0 btn btn-warning" *ngFor="let genre of tvGenres" [routerLink]="['/tv/genre/', genre.name, genre.id,1]">{{genre.name}}</p>
+        </div>
+    </div>
+</div>

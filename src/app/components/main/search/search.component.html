@@ -1,0 +1,55 @@
+<div class="container text-white">
+  <div *ngIf="noResults" class="my-5">
+    <h1>No results found for "{{ searchQuery }}".</h1>
+  </div>
+    <h3 class="my-4" *ngIf="!noResults">Search results for {{searchQuery}}</h3>
+    <ul class="nav nav-tabs mb-5" id="myTab" role="tablist" *ngIf="!noResults">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active bg-transparent text-white" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Movies</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link bg-transparent text-white" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">TV Shows</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link bg-transparent text-white" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">People</button>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent" *ngIf="!noResults">
+      <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+        <div class="cards d-flex flex-wrap gap-5 justify-content-evenly">
+          <div class="card bg-transparent text-white border-0 cursor-pointer" *ngFor="let movie of movies" [routerLink]="['/movie/',movie?.id]">
+              <img src="{{movie?.poster_path ? 'https://media.themoviedb.org/t/p/original' + movie?.poster_path : 'https://eticketsolutions.com/demo/themes/e-ticket/img/movie.jpg'}}" class="card-img-top" alt="...">
+              <div class="card-body p-0 py-2">
+                <p class="card-title mb-0">{{movie?.title }}</p>
+              </div>
+          </div>
+      </div>
+      </div>
+      <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+        <div class="cards d-flex flex-wrap gap-5 justify-content-evenly">
+          <div class="card bg-transparent text-white border-0 cursor-pointer" *ngFor="let tvShow of tvShows" [routerLink]="['/tv/',tvShow?.id]">
+              <img src="{{tvShow?.poster_path ? 'https://media.themoviedb.org/t/p/original' + tvShow?.poster_path : 'https://eticketsolutions.com/demo/themes/e-ticket/img/movie.jpg'}}" class="card-img-top" alt="...">
+              <div class="card-body p-0 py-2">
+                <p class="card-title mb-0">{{tvShow?.name }}</p>
+              </div>
+          </div>
+      </div>
+      </div>
+      <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+        <div class="cards d-flex flex-wrap gap-5 justify-content-evenly">
+          <div class="card bg-transparent text-white border-0 cursor-pointer" *ngFor="let person of people" [routerLink]="['/people/', person?.id]">
+              <img src="{{person?.profile_path ? 'https://media.themoviedb.org/t/p/original'+ person?.profile_path : 'https://upload.wikimedia.org/wikipedia/commons/a/a2/Person_Image_Placeholder.png'}}" class="card-img-top" alt="...">
+              <div class="card-body p-0 py-2">
+                <p class="card-title mb-0">{{person?.name }}</p>
+              </div>
+          </div>
+      </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center my-5" *ngIf="!noResults">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link bg-transparent text-white" [class.d-none]="+page===1" [routerLink]="['/search/', searchQuery, (+page-1)]">Previous Page</a></li>
+          <li class="page-item"><a class="page-link bg-transparent text-white" [routerLink]="['/search/', searchQuery, (+page+1)]">Next Page</a></li>
+        </ul>
+    </div>
+</div>

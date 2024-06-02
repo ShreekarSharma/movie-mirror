@@ -1,0 +1,81 @@
+<app-carousel></app-carousel>
+<!-- Trending Today Movies -->
+<div class="container text-white">
+  <h4 class="my-3">Movies Trending Today</h4>
+  <div class="cards d-flex gap-3 overflow-x-auto" appHorizontalScroll>
+    <div
+      class="card bg-transparent text-white border-0 cursor-pointer"
+      *ngFor="let movie of trendingTodayMovies"
+      [routerLink]="['/movie/', movie.id]"
+    >
+      <img
+        src="https://media.themoviedb.org/t/p/original{{ movie.poster_path }}"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body p-0 py-2">
+        <p class="card-title mb-0">{{ movie.title }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Trending This Week Movies -->
+<div class="container text-white">
+  <h4 class="my-3">Movies Trending This Week</h4>
+  <div class="cards d-flex gap-3 overflow-x-auto" appHorizontalScroll>
+    <div
+      class="card bg-transparent text-white border-0 cursor-pointer"
+      *ngFor="let movie of trendingThisWeekMovies"
+      [routerLink]="['/movie/', movie.id]"
+    >
+      <img
+        src="https://media.themoviedb.org/t/p/original{{ movie.poster_path }}"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body p-0 py-2">
+        <p class="card-title mb-0">{{ movie.title }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Airing Today TV Shows -->
+<div class="container text-white">
+  <h4 class="my-3">TV Shows Airing Today</h4>
+  <div class="cards d-flex gap-3 overflow-x-auto" appHorizontalScroll>
+    <div
+      class="card bg-transparent text-white border-0 cursor-pointer"
+      *ngFor="let tvShow of airingTodayTvShows"
+      [routerLink]="['/tv/', tvShow.id]"
+    >
+      <img
+        src="https://media.themoviedb.org/t/p/original{{ tvShow.poster_path }}"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body p-0 py-2">
+        <p class="card-title mb-0">{{ tvShow.name }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- On The Air TV Shows -->
+<div class="container text-white">
+  <h4 class="my-3">On The Air TV Shows</h4>
+  <div class="cards d-flex gap-3 overflow-x-auto" appHorizontalScroll>
+    <div
+      class="card bg-transparent text-white border-0 cursor-pointer"
+      *ngFor="let tvShow of onTheAirTvShows"
+      [routerLink]="['/tv/', tvShow.id]"
+    >
+      <img
+        src="https://media.themoviedb.org/t/p/original{{ tvShow.poster_path }}"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body p-0 py-2">
+        <p class="card-title mb-0">{{ tvShow.name }}</p>
+      </div>
+    </div>
+  </div>
+</div>
