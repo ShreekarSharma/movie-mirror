@@ -25,7 +25,7 @@
     </div>
     <p class="lead text-white">{{ personDetail?.biography }}</p>
     <h3>Movie Filmography</h3>
-    <h4 class="my-3">As part of Cast</h4>
+    <h4 class="my-3" *ngIf="!personMovieCreditsCast">As part of Cast</h4>
     <div class="cards d-flex gap-3 overflow-x-auto" appHorizontalScroll>
       <div class="card recommendation-card bg-transparent text-white border-0 cursor-pointer"
         *ngFor="let movie of personMovieCreditsCast" [routerLink]="['/movie/', movie?.id]">
@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <h4 class="my-3">As part of Crew</h4>
+    <h4 class="my-3" *ngIf="!personMovieCreditsCrew">As part of Crew</h4>
     <div class="cards d-flex gap-3 overflow-x-auto" appHorizontalScroll>
       <div class="card recommendation-card bg-transparent text-white border-0 cursor-pointer"
         *ngFor="let movie of personMovieCreditsCrew" [routerLink]="['/movie/', movie?.id]">
@@ -46,7 +46,7 @@
       </div>
     </div>
     <h3>TV Show Filmography</h3>
-    <h4 class="my-3">As part of Cast</h4>
+    <h4 class="my-3" *ngIf="!personTvCreditsCast">As part of Cast</h4>
     <div class="cards d-flex gap-3 overflow-x-auto" appHorizontalScroll>
       <div class="card recommendation-card bg-transparent text-white border-0 cursor-pointer"
         *ngFor="let tv of personTvCreditsCast" [routerLink]="['/tv/', tv?.id]">
@@ -56,7 +56,7 @@
         </div>
       </div>
     </div>
-    <h4 class="my-3">As part of Crew</h4>
+    <h4 class="my-3" *ngIf="!personTvCreditsCrew">As part of Crew</h4>
     <div class="cards d-flex gap-3 overflow-x-auto" appHorizontalScroll>
       <div class="card recommendation-card bg-transparent text-white border-0 cursor-pointer"
         *ngFor="let tv of personTvCreditsCrew" [routerLink]="['/tv/', tv?.id]">
