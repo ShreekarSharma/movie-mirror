@@ -3,10 +3,10 @@
         <div class="carousel-inner">
           <div class="carousel-item cursor-pointer" data-bs-interval="3000" [class.active]="i===1" *ngFor="let movie of trending; let i = index" [routerLink]="['/movie/', movie.id]">
             <img src="https://image.tmdb.org/t/p/original{{movie.backdrop_path}}" class="d-block w-100">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption">
               <h2>{{movie.title}} ({{movie.release_date.slice(0,4)}})</h2>
-              <h5><i class="bi bi-star-fill"></i> {{movie.vote_average}}/10 | {{movie.vote_count}} Ratings</h5>
-              <p class="lead">{{movie.overview}}</p>
+              <h5 class="d-none d-md-block"><i class="bi bi-star-fill"></i> {{movie.vote_average}}/10 | {{movie.vote_count}} Ratings</h5>
+              <p class="lead d-none d-md-block">{{movie.overview}}</p>
             </div>
           </div>
         </div>
